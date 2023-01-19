@@ -1,0 +1,17 @@
+created:
+    - app/Http/Controllers/Api/Cadastros/SafraController.php
+    - database/factories/Api/Cadastros/SafraFactory.php
+    - database/migrations/2023_01_05_194506_create_safras_table.php
+    - app/Models/Api/Cadastros/Safra.php
+    - tests/Feature/Http/Controllers/Api/Cadastros/SafraControllerTest.php
+    - app/Http/Requests/Api\Cadastros/SafraStoreRequest.php
+    - app/Http/Requests/Api\Cadastros/SafraUpdateRequest.php
+    - app/Http/Resources/Api\Cadastros/SafraCollection.php
+    - app/Http/Resources/Api\Cadastros/SafraResource.php
+updated:
+    - routes/api.php
+models:
+    Api\Cadastros\AnoAgricula: { empresa_id: 'biginteger unsigned', uuid: 'string:36', nome: string, data_abertura: date, data_fechamento: date, status: 'enum:ATIVO,DESATIVADO default:ATIVO' }
+    Api\Cadastros\Empresa: { uuid: 'string:36', nome: string, cnpj: string, inscricao: string, url: 'string nullable', email: string, telefone: 'string nullable', logo: 'string nullable', status: 'enum:ATIVA,DESATIVADA default:ATIVA' }
+    Api\Cadastros\User: { uuid: 'string:36', name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Api\Cadastros\Safra: { empresa_id: 'id foreign', ano_agricula_id: 'id foreign', uuid: uuid, nome: 'string unique', inicio_safra: 'date nullable', final_safra: 'date nullable', status: 'boolean default:true', softdeletes: softDeletes, timestamps: timestamps }

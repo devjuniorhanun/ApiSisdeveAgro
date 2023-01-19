@@ -1,0 +1,15 @@
+models:
+  Api\Cadastros\Safra:
+    empresa_id: id foreign
+    ano_agricula_id: id foreign
+    uuid: uuid
+    nome: string unique
+    inicio_safra: date nullable
+    final_safra: date nullable
+    status: boolean default:true
+    softDeletes: true
+    timestamps: true
+
+controllers:
+  Api\Cadastros\Safra:
+    resource: api
